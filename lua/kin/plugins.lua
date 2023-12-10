@@ -38,10 +38,24 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
 
+    -- Package Manager and Common Requires
     use('wbthomason/packer.nvim')
     use('nvim-lua/popup.nvim')
     use('nvim-lua/plenary.nvim')
-    use({ "ellisonleao/gruvbox.nvim" })
+
+    -- Colorscheme
+    use('ellisonleao/gruvbox.nvim')
+
+    -- Completion
+    use('hrsh7th/nvim-cmp')
+    use('hrsh7th/cmp-buffer')
+    use('hrsh7th/cmp-path')
+    use('hrsh7th/cmp-cmdline')
+    use('saadparwaiz1/cmp_luasnip')
+
+    -- Snippets
+    use('L3MON4D3/LuaSnip') 
+    use('rafamadriz/friendly-snippets')
 
     if PACKER_BOOTSTRAP then
         require('packer').sync()
