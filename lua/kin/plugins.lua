@@ -57,11 +57,41 @@ return packer.startup(function(use)
     use('L3MON4D3/LuaSnip') 
     use('rafamadriz/friendly-snippets')
 
+    -- Comments - gc to comment
+    use({
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    })
+
     -- Treesitter
     use({
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     })
+
+    -- Telescope
+    use({
+        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    })
+
+    -- LSP 
+    -- use({
+    --     'VonHeikemen/lsp-zero.nvim',
+    --     branch = 'v3.x',
+    --     requires = {
+    --         --- Uncomment these if you want to manage LSP servers from neovim
+    --         {'williamboman/mason.nvim'},
+    --         {'williamboman/mason-lspconfig.nvim'},
+    --
+    --         -- LSP Support
+    --         {'neovim/nvim-lspconfig'},
+    --         -- Autocompletion
+    --         {'hrsh7th/cmp-nvim-lsp'},
+    --     }
+    -- })
 
     if PACKER_BOOTSTRAP then
         require('packer').sync()

@@ -4,6 +4,9 @@ local keymap = vim.api.nvim_set_keymap
 
 -- Normal Mode Mappings --
 
+-- Leader becomes space
+vim.g.mapleader = " "
+
 -- Easier window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -27,8 +30,8 @@ keymap("i", "jk", "<ESC>", opts)
 
 -- Visual Mode Mappings --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+-- keymap("v", "<", "<gv", opts)
+-- keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
