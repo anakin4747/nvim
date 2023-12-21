@@ -34,6 +34,7 @@ local options = {
     sidescrolloff = 8,
     termguicolors = true,                    -- Provides more color options
     foldmethod = "indent",
+    iskeyword = "a-z,A-Z,48-57,_,.,-,>"
 }
 
 
@@ -43,5 +44,4 @@ end
 
 -- vim.opt.shortmess:append "c"
 -- vim.cmd "set whichwrap+=<,>,[,],h,l" -- This makes your cursor wrap to the next line when you hit the end
-vim.cmd [[set iskeyword+=-]]
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
