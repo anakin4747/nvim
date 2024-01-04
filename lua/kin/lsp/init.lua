@@ -1,0 +1,5 @@
+require("kin.lsp.bash")
+require("kin.lsp.c")
+require("kin.lsp.latex")
+require("kin.lsp.python")
+require("kin.lsp.keymaps")

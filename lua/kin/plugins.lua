@@ -52,6 +52,7 @@ return packer.startup(function(use)
     use('hrsh7th/cmp-path')
     use('hrsh7th/cmp-cmdline')
     use('saadparwaiz1/cmp_luasnip')
+    use('hrsh7th/cmp-nvim-lsp')
 
     -- Snippets
     use('L3MON4D3/LuaSnip') 
@@ -78,20 +79,14 @@ return packer.startup(function(use)
     })
 
     -- LSP 
-    -- use({
-    --     'VonHeikemen/lsp-zero.nvim',
-    --     branch = 'v3.x',
-    --     requires = {
-    --         --- Uncomment these if you want to manage LSP servers from neovim
-    --         {'williamboman/mason.nvim'},
-    --         {'williamboman/mason-lspconfig.nvim'},
-    --
-    --         -- LSP Support
-    --         {'neovim/nvim-lspconfig'},
-    --         -- Autocompletion
-    --         {'hrsh7th/cmp-nvim-lsp'},
-    --     }
-    -- })
+    use({
+        'neovim/nvim-lspconfig',
+        requires = {
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
+            {'folke/neodev.nvim'},
+        }
+    })
 
     if PACKER_BOOTSTRAP then
         require('packer').sync()
