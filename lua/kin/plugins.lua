@@ -86,7 +86,10 @@ return packer.startup(function(use)
             {'williamboman/mason-lspconfig.nvim'},
             {'folke/neodev.nvim'},
         }
-    })
+     })
+
+     -- Tmux integration
+     use("christoomey/vim-tmux-navigator")
 
     if PACKER_BOOTSTRAP then
         require('packer').sync()
