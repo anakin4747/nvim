@@ -15,8 +15,9 @@ local options = {
     smartindent = true,                      -- make indenting smarter again
     splitbelow = true,                       -- force all horizontal splits to go below current window
     splitright = true,                       -- force all vertical splits to go to the right of current window
-    swapfile = false,                        -- creates a swapfile
-    timeoutlen = 1000,                        -- time to wait for a mapped sequence to complete (in milliseconds)
+    swapfile = true,                         -- creates a swapfile
+    dir = vim.fn.expand("~/.local/share/nvim/swap"),        -- specify swap dir
+    timeoutlen = 1000,                       -- time to wait for a mapped sequence to complete (in milliseconds)
     undofile = true,                         -- enable persistent undo
     updatetime = 300,                        -- faster completion (4000ms default)
     writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
@@ -34,14 +35,16 @@ local options = {
     sidescrolloff = 8,
     termguicolors = true,                    -- Provides more color options
     foldmethod = "indent",
-    iskeyword = "a-z,A-Z,48-57,_,.,-,>"
+    iskeyword = "a-z,A-Z,48-57,_,-,>"
+    -- spell = true,                         -- Spell Check, once you get better with it
+    -- spelllang = "en_ca",
 }
-
 
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
+vim.cmd [[ set clipboard+=unnamedplus ]]
 -- vim.opt.shortmess:append "c"
 -- vim.cmd "set whichwrap+=<,>,[,],h,l" -- This makes your cursor wrap to the next line when you hit the end
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work

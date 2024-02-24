@@ -88,8 +88,15 @@ return packer.startup(function(use)
         }
      })
 
-     -- Tmux integration
+     -- Tmux Integration
      use("christoomey/vim-tmux-navigator")
+
+     -- Debug Integration
+     use("mfussenegger/nvim-dap")
+
+     -- Copilot
+     -- use("github/copilot.vim")
+
 
     if PACKER_BOOTSTRAP then
         require('packer').sync()

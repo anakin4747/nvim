@@ -1,6 +1,27 @@
 require('lspconfig').ltex.setup({})
 local util = require 'lspconfig.util'
 
+-- Make on Write for LaTeX files
+local latex_make_group = vim.api.nvim_create_augroup('LatexMake', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', {
+    callback = function()
+        local current_file = vim.fn.expand('%:p')
+        local current_directory = vim.fn.expand('%:p:h')
+
+        -- Check if a Makefile exists in the current directory
+        local makefile_exists = vim.fn.filereadable(current_directory .. '/Makefile') == 1
+
+        if makefile_exists then
+            vim.cmd('silent make')
+        else
+            print("No Makefile found for LaTeX compilation")
+        end
+    end,
+    group = latex_make_group,
+    pattern = '*.tex',  -- Trigger only on LaTeX file writes
+})
+
+
 local language_id_mapping = {
     bib = 'bibtex',
     plaintex = 'tex',
