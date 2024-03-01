@@ -27,7 +27,7 @@ local options = {
     cursorline = true,                       -- highlight the current line
     cursorcolumn = true,                     -- highlight the current line
     number = true,                           -- set numbered lines
-    relativenumber = true,                   -- set relative numbered lines
+    -- relativenumber = true,                   -- set relative numbered lines
     numberwidth = 4,                         -- set number column width to 2 {default 4}
     signcolumn = "no",                       -- always show the sign column, otherwise it would shift the text each time
     wrap = false,                            -- display lines as one long line
@@ -35,16 +35,17 @@ local options = {
     sidescrolloff = 8,
     termguicolors = true,                    -- Provides more color options
     foldmethod = "indent",
-    iskeyword = "a-z,A-Z,48-57,_,-,>"
+    iskeyword = "a-z,A-Z,48-57,_",
     -- spell = true,                         -- Spell Check, once you get better with it
     -- spelllang = "en_ca",
+    shellcmdflag = "-ic"
 }
 
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
-vim.cmd [[ set clipboard+=unnamedplus ]]
+vim.cmd(" set clipboard+=unnamedplus ")
 -- vim.opt.shortmess:append "c"
 -- vim.cmd "set whichwrap+=<,>,[,],h,l" -- This makes your cursor wrap to the next line when you hit the end
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
