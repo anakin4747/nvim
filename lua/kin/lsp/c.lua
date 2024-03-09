@@ -1,6 +1,25 @@
-require('lspconfig').ccls.setup({})
+require('lspconfig').ccls.setup({
+    on_attach = function ()
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
+        vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
+    end,
+})
 
-local util = require 'lspconfig.util'
+-- Attempt to bootstrap ccls
+-- if vim.fn.executable('ccls') == 0 then
+--
+--     local get_distro_sh_cmd = [[
+--         awk -F '"' '/^NAME/ {print $2}' /etc/os-release
+--     ]]
+--
+--     local distro = vim.fn.system(get_distro_sh_cmd)
+--
+--     if string.find(distro, "Arch")
+-- end
+
+local util = require('lspconfig.util')
 
 local root_files = {
     'compile_commands.json',
