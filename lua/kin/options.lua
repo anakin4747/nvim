@@ -26,19 +26,22 @@ local options = {
     tabstop = 4,                             -- insert 2 spaces for a tab
     cursorline = true,                       -- highlight the current line
     cursorcolumn = true,                     -- highlight the current line
+    colorcolumn = "80",                      -- vertical bar at 80
+    textwidth = 79,
     number = true,                           -- set numbered lines
     -- relativenumber = true,                   -- set relative numbered lines
     numberwidth = 4,                         -- set number column width to 2 {default 4}
     signcolumn = "no",                       -- always show the sign column, otherwise it would shift the text each time
     wrap = false,                            -- display lines as one long line
+    -- wrapscan = false,                     -- searches wrap back to the top
     scrolloff = 9,                           -- is one of my fav
-    sidescrolloff = 8,
+    sidescrolloff = 0,
     termguicolors = true,                    -- Provides more color options
     foldmethod = "indent",
-    iskeyword = "a-z,A-Z,48-57,_",
+    iskeyword = "a-z,A-Z,48-57,_",           -- What characters count as part of a word
     -- spell = true,                         -- Spell Check, once you get better with it
     -- spelllang = "en_ca",
-    shellcmdflag = "-ic"
+    shellcmdflag = "-ic",                    -- Allows the :! terminal to use my .zshrc
 }
 
 for k, v in pairs(options) do
