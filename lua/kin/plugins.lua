@@ -55,7 +55,7 @@ return packer.startup(function(use)
     use('hrsh7th/cmp-nvim-lsp')
 
     -- Snippets
-    use('L3MON4D3/LuaSnip') 
+    use('L3MON4D3/LuaSnip')
     use('rafamadriz/friendly-snippets')
 
     -- Comments - gc to comment
@@ -89,7 +89,8 @@ return packer.startup(function(use)
      })
 
      -- Tmux Integration
-     use("christoomey/vim-tmux-navigator")
+     use("anakin4747/vim-tmux-nav-lua")
+     -- use("christoomey/vim-tmux-navigator")
 
      -- Debug Integration
      use("mfussenegger/nvim-dap")
