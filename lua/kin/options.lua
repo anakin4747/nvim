@@ -1,5 +1,4 @@
 local options = {
-    backup = false,                          -- creates a backup file
     cmdheight = 1,                           -- more space in the neovim command line for displaying messages
     completeopt = { "menuone", "noselect" }, -- mostly just for cmp
     conceallevel = 0,                        -- so that `` is visible in markdown files
@@ -7,6 +6,7 @@ local options = {
     hlsearch = false,                         -- highlight all matches on previous search pattern
     incsearch = true,
     ignorecase = true,                       -- ignore case in search patterns
+    infercase = true,                        -- allows completions to use the case you've already typed
     mouse = "",                              -- allow the mouse to be used in neovim
     pumheight = 10,                          -- pop up menu height
     showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
@@ -16,11 +16,15 @@ local options = {
     splitbelow = true,                       -- force all horizontal splits to go below current window
     splitright = true,                       -- force all vertical splits to go to the right of current window
     swapfile = true,                         -- creates a swapfile
-    dir = vim.fn.expand("~/.local/share/nvim/swap"),        -- specify swap dir
+    dir = vim.fn.expand("~/.local/share/nvim/swap") .. "//",        -- specify swap dir
+    backup = true,                           -- enable backups
+    backupcopy = "yes",                      -- make a copy and overwrite the original
+    writebackup = true,                      -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+    backupext = ".bak",                      -- backup file extenstion
+    backupdir = vim.fn.expand("~/.local/share/nvim/backup") .. "//",
     timeoutlen = 1000,                       -- time to wait for a mapped sequence to complete (in milliseconds)
     undofile = true,                         -- enable persistent undo
     updatetime = 300,                        -- faster completion (4000ms default)
-    writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
     expandtab = true,                        -- convert tabs to spaces
     shiftwidth = 4,                          -- the number of spaces inserted for each indentation
     tabstop = 4,                             -- insert 2 spaces for a tab
@@ -48,7 +52,7 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
-vim.cmd(" set clipboard+=unnamedplus ")
+vim.cmd("set clipboard+=unnamedplus")
 -- vim.opt.shortmess:append "c"
 -- vim.cmd "set whichwrap+=<,>,[,],h,l" -- This makes your cursor wrap to the next line when you hit the end
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
